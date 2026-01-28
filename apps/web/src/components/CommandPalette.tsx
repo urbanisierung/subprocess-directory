@@ -72,7 +72,7 @@ export default function CommandPalette({ processes }: CommandPaletteProps) {
               key={process.id}
               value={process.title}
               onSelect={() => {
-                window.location.href = `/subprocess/${process.id}`;
+                window.location.href = `/process/${process.id}`;
               }}
               className="command-item"
             >

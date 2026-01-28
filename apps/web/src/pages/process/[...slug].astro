@@ -12,8 +12,10 @@ export async function getStaticPaths() {
   
   return subprocesses.map((subprocess) => {
     const pathParts = subprocess.id.split("/");
+    // pathParts is like ["en", "invoice-approval", "data"]
     const locale = pathParts[0];
-    const processId = pathParts.slice(1).join("/");
+    // We want just the process name, not "data"
+    const processId = pathParts.slice(1, -1).join("/");
     
     return {
       params: { slug: processId },
@@ -31,10 +33,9 @@ const { subprocess, locale } = Astro.props;
 const { data } = subprocess;
 
 // Read BPMN XML file
-// The subprocess.id includes "data" as the last part, so we need to construct the path properly
+// The subprocess.id is like "en/invoice-approval/data", we need path without "data"
 const idParts = subprocess.id.split("/");
-// Remove "data" from the end
-const pathWithoutData = idParts.slice(0, -1).join("/");
+const pathWithoutData = idParts.slice(0, -1).join("/"); // Remove "data" from the end
 const bpmnPath = join(process.cwd(), "src/content/subprocesses", pathWithoutData, "process.bpmn");
 let bpmnXml = "";
 try {
@@ -43,8 +44,9 @@ try {
   console.error(`Failed to read BPMN file for ${subprocess.id}:`, error);
 }
 
-// Get process ID from path
-const processId = pathWithoutData.split("/").slice(1).join("-");
+// Get process ID (just the name without locale)
+const processNameParts = pathWithoutData.split("/").slice(1); // Remove locale
+const processId = processNameParts.join("-");
 const githubUrl = `https://github.com/urbanisierung/subprocess-directory/blob/main/apps/web/src/content/subprocesses/${pathWithoutData}/process.bpmn`;
 
 // Format date
