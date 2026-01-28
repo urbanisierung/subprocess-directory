@@ -7,10 +7,8 @@ export default {
       colors: {
         "orangemunda": "#FC5D0D",
         "spacecraft": "#F7F7F7",
-        "look-up": "#1F2A44",
-        "concrete-grey": "#E6E7E8",
-        "misty-grey": "#666666",
-        "greenmunda": "#26D07C",
+        "black": "#000000",
+        "white": "#FFFFFF",
       },
       fontFamily: {
         sans: ["IBM Plex Sans", "Inter", "Arial", "sans-serif"],

@@ -92,8 +92,8 @@ export default function FacetedSidebar({
       {/* Sidebar */}
       <aside
         className={`
-          fixed lg:sticky top-16 left-0 h-[calc(100vh-4rem)] w-64 
-          bg-white dark:bg-gray-900 border-r border-concrete-grey dark:border-gray-800 z-50
+          fixed lg:sticky lg:top-0 left-0 h-screen w-64 
+          bg-black border-r border-gray-800 z-50
           transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
           overflow-y-auto
@@ -102,11 +102,11 @@ export default function FacetedSidebar({
         <div className="p-6">
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-lg font-semibold dark:text-white">Filters</h2>
+            <h2 className="text-lg font-semibold text-white">Filters</h2>
             {totalFiltersCount > 0 && (
               <button
                 onClick={clearFilters}
-                className="text-sm text-orangemunda hover:underline"
+                className="text-sm text-orangemunda hover:text-white transition-colors"
               >
                 Clear all
               </button>
@@ -117,7 +117,7 @@ export default function FacetedSidebar({
           <div className="space-y-6">
             {filterGroups.map((group) => (
               <div key={group.title}>
-                <h3 className="text-sm font-medium mb-3 text-gray-900 dark:text-white">
+                <h3 className="text-sm font-medium mb-3 text-spacecraft">
                   {group.title}
                 </h3>
                 <div className="space-y-2">
@@ -136,13 +136,13 @@ export default function FacetedSidebar({
                           type="checkbox"
                           checked={isSelected}
                           onChange={() => handleFilterToggle(group.title, option.value)}
-                          className="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-orangemunda focus:ring-orangemunda cursor-pointer dark:bg-gray-800"
+                          className="w-4 h-4 rounded border-gray-600 text-orangemunda focus:ring-orangemunda cursor-pointer bg-gray-900"
                         />
-                        <span className="text-sm text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white flex-1">
+                        <span className="text-sm text-gray-300 group-hover:text-white flex-1 transition-colors">
                           {option.label}
                         </span>
                         {option.count !== undefined && (
-                          <span className="text-xs text-gray-500 dark:text-gray-400">
+                          <span className="text-xs text-gray-500">
                             {option.count}
                           </span>
                         )}

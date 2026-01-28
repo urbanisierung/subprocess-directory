@@ -42,7 +42,7 @@ export default function BrowseContent({ processes }: BrowseContentProps) {
   }, [processes, filters]);
 
   return (
-    <div className="flex">
+    <div className="flex min-h-screen bg-black">
       <FacetedSidebar
         isOpen={sidebarOpen}
         onToggle={() => setSidebarOpen(!sidebarOpen)}
@@ -51,10 +51,10 @@ export default function BrowseContent({ processes }: BrowseContentProps) {
 
       <div className="flex-1">
         {/* Mobile Filter Toggle */}
-        <div className="lg:hidden p-4 border-b border-concrete-grey dark:border-gray-800">
+        <div className="lg:hidden p-4 border-b border-gray-800">
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="flex items-center gap-2 px-4 py-2 border border-concrete-grey dark:border-gray-700 rounded-lg hover:bg-spacecraft dark:hover:bg-gray-800 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 border border-gray-700 rounded-lg hover:bg-gray-900 transition-colors text-white"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -77,10 +77,10 @@ export default function BrowseContent({ processes }: BrowseContentProps) {
         <div className="p-6 lg:p-12">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-4xl font-bold mb-4 dark:text-white">Browse Processes</h1>
-            <p className="text-lg text-misty-grey dark:text-gray-400">
+            <h1 className="text-4xl font-bold mb-4 text-white">Browse Processes</h1>
+            <p className="text-lg text-gray-400">
               Discover and integrate reusable BPMN subprocesses. Press{" "}
-              <kbd className="px-2 py-1 bg-spacecraft dark:bg-gray-800 border border-concrete-grey dark:border-gray-700 rounded text-sm font-mono">
+              <kbd className="px-2 py-1 bg-gray-900 border border-gray-700 rounded text-sm font-mono text-white">
                 ⌘K
               </kbd>{" "}
               to search.
@@ -89,29 +89,29 @@ export default function BrowseContent({ processes }: BrowseContentProps) {
 
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-concrete-grey dark:border-gray-800">
+            <div className="bg-gray-900 p-4 rounded-lg border border-gray-800 hover:border-gray-700 transition-colors">
               <div className="text-2xl font-bold text-orangemunda">{filteredProcesses.length}</div>
-              <div className="text-sm text-misty-grey dark:text-gray-400">
+              <div className="text-sm text-gray-400">
                 {Object.values(filters).flat().length > 0 ? "Filtered" : "Total"} Processes
               </div>
             </div>
-            <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-concrete-grey dark:border-gray-800">
-              <div className="text-2xl font-bold text-greenmunda">
+            <div className="bg-gray-900 p-4 rounded-lg border border-gray-800 hover:border-gray-700 transition-colors">
+              <div className="text-2xl font-bold text-orangemunda">
                 {filteredProcesses.filter((p) => p.complexity === "low").length}
               </div>
-              <div className="text-sm text-misty-grey dark:text-gray-400">Simple</div>
+              <div className="text-sm text-gray-400">Simple</div>
             </div>
-            <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-concrete-grey dark:border-gray-800">
+            <div className="bg-gray-900 p-4 rounded-lg border border-gray-800 hover:border-gray-700 transition-colors">
               <div className="text-2xl font-bold text-orangemunda">
                 {filteredProcesses.filter((p) => p.complexity === "mid").length}
               </div>
-              <div className="text-sm text-misty-grey dark:text-gray-400">Moderate</div>
+              <div className="text-sm text-gray-400">Moderate</div>
             </div>
-            <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-concrete-grey dark:border-gray-800">
-              <div className="text-2xl font-bold text-red-600">
+            <div className="bg-gray-900 p-4 rounded-lg border border-gray-800 hover:border-gray-700 transition-colors">
+              <div className="text-2xl font-bold text-orangemunda">
                 {filteredProcesses.filter((p) => p.complexity === "high").length}
               </div>
-              <div className="text-sm text-misty-grey dark:text-gray-400">Complex</div>
+              <div className="text-sm text-gray-400">Complex</div>
             </div>
           </div>
 
@@ -125,7 +125,7 @@ export default function BrowseContent({ processes }: BrowseContentProps) {
           ) : (
             <div className="text-center py-12">
               <svg
-                className="mx-auto h-12 w-12 text-gray-400"
+                className="mx-auto h-12 w-12 text-gray-600"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -137,10 +137,10 @@ export default function BrowseContent({ processes }: BrowseContentProps) {
                   d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                 />
               </svg>
-              <h3 className="mt-2 text-sm font-medium text-gray-900 dark:text-white">
+              <h3 className="mt-2 text-sm font-medium text-white">
                 No processes found
               </h3>
-              <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+              <p className="mt-1 text-sm text-gray-400">
                 Try adjusting your filters to see more results.
               </p>
             </div>

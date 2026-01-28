@@ -15,9 +15,9 @@ const complexityLabels = {
 };
 
 const complexityColors = {
-  low: "bg-greenmunda/20 text-greenmunda",
+  low: "bg-orangemunda/20 text-orangemunda",
   mid: "bg-orangemunda/20 text-orangemunda",
-  high: "bg-red-600/20 text-red-600",
+  high: "bg-orangemunda/20 text-orangemunda",
 };
 
 import BPMNPreview from "./BPMNPreview";
@@ -34,18 +34,18 @@ export default function ProcessCard({
   return (
     <a
       href={`/process/${id}`}
-      className="block bg-white dark:bg-gray-900 border border-concrete-grey dark:border-gray-800 rounded-lg overflow-hidden transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group"
+      className="block bg-gray-900 border border-gray-800 rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:border-orangemunda hover:shadow-2xl hover:shadow-orangemunda/20 group"
     >
       {/* BPMN Preview - Client-side only */}
-      <div className="h-40 bg-white dark:bg-gray-900 border-b border-concrete-grey dark:border-gray-700 relative overflow-hidden">
+      <div className="h-48 bg-black border-b border-gray-800 relative overflow-hidden group-hover:border-orangemunda transition-colors">
         {bpmnXml ? (
           <div className="w-full h-full" data-bpmn-preview={id}>
             <BPMNPreview xml={bpmnXml} className="pointer-events-none" />
           </div>
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-spacecraft dark:bg-gray-800">
+          <div className="w-full h-full flex items-center justify-center bg-gray-950">
             <svg
-              className="w-16 h-16 text-gray-300 dark:text-gray-600"
+              className="w-16 h-16 text-gray-700 group-hover:text-orangemunda transition-colors"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -59,27 +59,29 @@ export default function ProcessCard({
             </svg>
           </div>
         )}
+        {/* Netflix-style overlay on hover */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
       </div>
 
       {/* Content */}
-      <div className="p-4">
-        <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2 line-clamp-2 group-hover:text-orangemunda transition-colors">
+      <div className="p-5">
+        <h3 className="text-lg font-semibold text-white mb-2 line-clamp-2 group-hover:text-orangemunda transition-colors">
           {title}
         </h3>
-        <p className="text-sm text-misty-grey dark:text-gray-400 mb-3 line-clamp-2">{description}</p>
+        <p className="text-sm text-gray-400 mb-4 line-clamp-2">{description}</p>
 
         {/* Tags and Complexity */}
         <div className="flex flex-wrap gap-2 mb-4">
           {tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="px-2 py-1 text-xs bg-spacecraft dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full"
+              className="px-2 py-1 text-xs bg-gray-800 text-gray-300 rounded-full hover:bg-gray-700 transition-colors"
             >
               {tag}
             </span>
           ))}
           {tags.length > 3 && (
-            <span className="px-2 py-1 text-xs bg-spacecraft dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full">
+            <span className="px-2 py-1 text-xs bg-gray-800 text-gray-300 rounded-full">
               +{tags.length - 3}
             </span>
           )}
@@ -91,16 +93,16 @@ export default function ProcessCard({
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between text-xs text-misty-grey dark:text-gray-400">
+        <div className="flex items-center justify-between text-xs text-gray-400">
           <div className="flex items-center gap-2">
-            <div className="w-5 h-5 rounded-full bg-concrete-grey dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300">
+            <div className="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 font-medium">
               {author.charAt(0).toUpperCase()}
             </div>
-            <span>{author}</span>
+            <span className="group-hover:text-white transition-colors">{author}</span>
           </div>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 group-hover:text-orangemunda transition-colors">
             <svg
-              className="w-4 h-4 text-gray-400"
+              className="w-4 h-4"
               fill="currentColor"
               viewBox="0 0 20 20"
             >
