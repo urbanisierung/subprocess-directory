@@ -8,7 +8,7 @@ interface ProcessActionsProps {
 
 export default function ProcessActions({
   bpmnXml,
-  githubUrl = "https://github.com/urbanisierung/subprocess-directory/tree/main/apps/web/src/content/subprocesses/en/invoice-approval",
+  githubUrl = "https://github.com/camunda-directory/subprocesses/tree/main/apps/web/src/content/subprocesses/en/invoice-approval",
   processName,
 }: ProcessActionsProps) {
   const [copied, setCopied] = useState(false)
