@@ -132,18 +132,8 @@ const complexityColors = {
       </div>
     </div>
 
-    <!-- Actions -->
-    <div class="mb-8">
-      <ProcessActions
-        client:load
-        bpmnXml={bpmnXml}
-        processName={processId}
-        githubUrl={githubUrl}
-      />
-    </div>
-
     <!-- BPMN Viewer -->
-    <div class="mb-12">
+    <div class="mb-8">
       <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Process Diagram</h2>
       <div class="bg-white dark:bg-gray-900 rounded-lg border border-concrete-grey dark:border-gray-800 overflow-hidden">
         {bpmnXml ? (
@@ -154,6 +144,17 @@ const complexityColors = {
           </div>
         )}
       </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="mb-12">
+      <h3 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Actions</h3>
+      <ProcessActions
+        client:load
+        bpmnXml={bpmnXml}
+        processName={processId}
+        githubUrl={githubUrl}
+      />
     </div>
 
     <!-- Description Section -->

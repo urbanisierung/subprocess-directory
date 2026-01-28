@@ -25,8 +25,10 @@ export default function BPMNViewer({ xml, className = "" }: BPMNViewerProps) {
     viewer
       .importXML(xml)
       .then(() => {
-        const canvas = viewer.get("canvas") as { zoom: (level: string) => void };
-        canvas.zoom("fit-viewport");
+        const canvas = viewer.get("canvas") as { 
+          zoom: (level: string | number, position?: string | { x: number; y: number }) => void 
+        };
+        canvas.zoom("fit-viewport", "auto");
       })
       .catch((err: Error) => {
         console.error("Error rendering BPMN diagram:", err);
@@ -40,8 +42,8 @@ export default function BPMNViewer({ xml, className = "" }: BPMNViewerProps) {
   return (
     <div
       ref={containerRef}
-      className={`bpmn-container bg-white border border-concrete-grey rounded-lg ${className}`}
-      style={{ minHeight: "600px" }}
+      className={`bpmn-container bg-white ${className}`}
+      style={{ width: "100%", height: "600px" }}
     />
   );
 }
