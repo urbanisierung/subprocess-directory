@@ -95,12 +95,12 @@
 **Objective:** Render instantly. Do not ship 5MB of JS to the listing page.
 
 ### Phase 3.1: The Build-Time Converter
-- [ ] **Tooling:** Install `bpmn-to-image` (Puppeteer wrapper) as a dev dependency.
-- [ ] **Script:** Create a pre-build script (or Astro Integration).
-  - [ ] **Input:** Scan `src/content/subprocesses/**/*.bpmn`.
-  - [ ] **Process:** Convert every `.bpmn` file to an optimized `.svg` containing the diagram.
-  - [ ] **Output:** Save SVGs to `public/previews/` or alongside content.
-- [ ] **Usage:** Listing cards strictly load the SVG via `<img>`. **Zero JS overhead.**
+- [x] **Tooling:** Install `bpmn-to-image` (Puppeteer wrapper) as a dev dependency.
+- [x] **Script:** Create a pre-build script (or Astro Integration).
+  - [x] **Input:** Scan `src/content/subprocesses/**/*.bpmn`.
+  - [x] **Process:** Convert every `.bpmn` file to an optimized `.svg` containing the diagram.
+  - [x] **Output:** Save SVGs to `public/previews/` or alongside content.
+- [x] **Usage:** Listing cards strictly load the SVG via `<img>`. **Zero JS overhead.**
 
 ### Phase 3.2: The Interactive Viewer (Detail Page)
 - [x] **Library:** Install `bpmn-js` (The mature standard by Camunda).

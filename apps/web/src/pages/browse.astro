@@ -17,6 +17,7 @@ const processes = [
     tags: ["finance", "approval", "automation"],
     complexity: "low" as const,
     author: "subprocess-hub",
+    imageUrl: "/previews/invoice-approval.svg",
   },
   {
     id: "employee-onboarding",
@@ -147,6 +148,7 @@ const commandPaletteData = processes.map((p) => ({
                 tags={process.tags}
                 complexity={process.complexity}
                 author={process.author}
+                imageUrl={process.imageUrl}
               />
             ))
           }
