@@ -31,7 +31,7 @@ export default function ProcessCard({
 }: ProcessCardProps) {
   return (
     <a
-      href={`/subprocess/${id}`}
+      href={`/process/${id}`}
       className="block bg-white dark:bg-gray-900 border border-concrete-grey dark:border-gray-800 rounded-lg overflow-hidden transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group"
     >
       {/* Preview Image */}
