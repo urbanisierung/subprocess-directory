@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BPMNViewer from "../components/BPMNViewer";
+import ProcessActions from "../components/ProcessActions";
+import Comments from "../components/Comments.astro";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
@@ -34,27 +36,12 @@ const bpmnXml = await readFile(bpmnPath, "utf-8");
       </div>
 
       <div class="space-y-6">
-        <div class="bg-white dark:bg-gray-900 p-6 rounded-lg border border-concrete-grey dark:border-gray-800">
-          <h3 class="font-semibold mb-4 dark:text-white">Actions</h3>
-          <div class="space-y-3">
-            <button
-              class="w-full px-4 py-2 border border-gray-900 dark:border-gray-700 rounded hover:bg-spacecraft dark:hover:bg-gray-800 transition-colors dark:text-white"
-            >
-              Download XML
-            </button>
-            <button
-              class="w-full px-4 py-2 border border-gray-900 dark:border-gray-700 rounded hover:bg-spacecraft dark:hover:bg-gray-800 transition-colors dark:text-white"
-            >
-              Copy to Clipboard
-            </button>
-            <a
-              href="https://github.com"
-              class="block w-full px-4 py-2 text-center border border-gray-900 dark:border-gray-700 rounded hover:bg-spacecraft dark:hover:bg-gray-800 transition-colors dark:text-white"
-            >
-              Edit on GitHub
-            </a>
-          </div>
-        </div>
+        <ProcessActions 
+          client:load 
+          bpmnXml={bpmnXml} 
+          processName="invoice-approval"
+          githubUrl="https://github.com/urbanisierung/subprocess-directory/tree/main/apps/web/src/content/subprocesses/en/invoice-approval"
+        />
 
         <div class="bg-white dark:bg-gray-900 p-6 rounded-lg border border-concrete-grey dark:border-gray-800">
           <h3 class="font-semibold mb-2 dark:text-white">Metadata</h3>
@@ -90,6 +77,12 @@ const bpmnXml = await readFile(bpmnPath, "utf-8");
           <li><strong>Completion:</strong> The process ends with either payment processed or invoice rejected</li>
         </ol>
       </div>
+    </div>
+
+    <!-- Comments Section -->
+    <div class="mt-12">
+      <h2 class="text-2xl font-semibold mb-6 dark:text-white">Comments & Discussion</h2>
+      <Comments />
     </div>
   </div>
 </BaseLayout>

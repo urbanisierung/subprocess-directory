@@ -143,16 +143,16 @@
 **Objective:** Social features without a database.
 
 ### Phase 5.1: Giscus Integration
-- [ ] **Setup:** Enable Discussions on the GitHub repo. Install Giscus App.
-- [ ] **Component:** Create `<Comments />` wrapper.
-  - [ ] **Mapping:** Map URL pathname to Discussion.
-  - [ ] **Reactions:** Enable "Top" reactions (serves as "Likes").
-  - [ ] **Theme:** Sync with current Dark/Light mode automatically.
+- [x] **Setup:** Enable Discussions on the GitHub repo. Install Giscus App.
+- [x] **Component:** Create `<Comments />` wrapper.
+  - [x] **Mapping:** Map URL pathname to Discussion.
+  - [x] **Reactions:** Enable "Top" reactions (serves as "Likes").
+  - [x] **Theme:** Sync with current Dark/Light mode automatically.
 
 ### Phase 5.2: User Actions
-- [ ] **Download:** Button to download raw `.bpmn` XML.
-- [ ] **Copy:** Button to copy XML to clipboard.
-- [ ] **Edit:** "Edit on GitHub" link pointing to the source file for PRs.
+- [x] **Download:** Button to download raw `.bpmn` XML.
+- [x] **Copy:** Button to copy XML to clipboard.
+- [x] **Edit:** "Edit on GitHub" link pointing to the source file for PRs.
 
 ---
 
@@ -181,4 +181,4 @@
 - [x] **Quality:** Setup `biome.json` (strict) & `tsconfig.json`.
 - [x] **Content:** Add one dummy BPMN file to `src/content/`.
 - [x] **Viewer:** Create the `<BPMNViewer />` React component.
-- [ ] **Preview:** Write the script to convert BPMN -> SVG.
+- [x] **Preview:** Write the script to convert BPMN -> SVG.
