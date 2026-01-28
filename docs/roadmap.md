@@ -31,36 +31,36 @@
 **Objective:** Establish a strict, centralized development environment.
 
 ### Phase 1.1: Workspace Initialization
-- [ ] **Init:** Run `pnpm init` and `git init`.
-- [ ] **Workspace Config:** Create `pnpm-workspace.yaml`:
+- [x] **Init:** Run `pnpm init` and `git init`.
+- [x] **Workspace Config:** Create `pnpm-workspace.yaml`:
   ```yaml
   packages:
     - "apps/*"
     - "packages/*"
   ```
-- [ ] **Turborepo:** Install `turbo` globally and at root. Create `turbo.json`.
-  - [ ] Define pipeline: `build`, `dev`, `check`, `lint`, `format`.
-  - [ ] Configure output caching (e.g., `dist/**`, `.astro/**`).
+- [x] **Turborepo:** Install `turbo` globally and at root. Create `turbo.json`.
+  - [x] Define pipeline: `build`, `dev`, `check`, `lint`, `format`.
+  - [x] Configure output caching (e.g., `dist/**`, `.astro/**`).
 
 ### Phase 1.2: Root Tooling (The "Control Tower")
 *Strategy: All devDependencies live in the root `package.json` (`pnpm add -w -D`). Apps only contain runtime deps.*
 
-- [ ] **Install Global Deps:**
+- [x] **Install Global Deps:**
   `pnpm add -w -D typescript @biomejs/biome astro @astrojs/check`
-- [ ] **Biome Config:** Create `biome.json` at root.
-  - [ ] Enable `linter`, `formatter`, `organizeImports`.
-  - [ ] Set strict rules (no `any`, no unused vars).
-- [ ] **TypeScript Config:** Create `tsconfig.json` at root.
-  - [ ] `strict: true`
-  - [ ] `verbatimModuleSyntax: true`
-  - [ ] `skipLibCheck: true`
-- [ ] **Root Scripts:** Add these EXACT commands to root `package.json` to check everything from the top level:
-  - [ ] `"dev"`: `turbo run dev`
-  - [ ] `"build"`: `turbo run build`
-  - [ ] `"lint"`: `turbo run lint`
-  - [ ] `"format"`: `turbo run format`
-  - [ ] `"check"`: `turbo run check` (Runs `astro check` + `tsc`)
-  - [ ] `"validate"`: `pnpm run lint && pnpm run format && pnpm run check && pnpm run build`
+- [x] **Biome Config:** Create `biome.json` at root.
+  - [x] Enable `linter`, `formatter`, `organizeImports`.
+  - [x] Set strict rules (no `any`, no unused vars).
+- [x] **TypeScript Config:** Create `tsconfig.json` at root.
+  - [x] `strict: true`
+  - [x] `verbatimModuleSyntax: true`
+  - [x] `skipLibCheck: true`
+- [x] **Root Scripts:** Add these EXACT commands to root `package.json` to check everything from the top level:
+  - [x] `"dev"`: `turbo run dev`
+  - [x] `"build"`: `turbo run build`
+  - [x] `"lint"`: `turbo run lint`
+  - [x] `"format"`: `turbo run format`
+  - [x] `"check"`: `turbo run check` (Runs `astro check` + `tsc`)
+  - [x] `"validate"`: `pnpm run lint && pnpm run format && pnpm run check && pnpm run build`
 
 ---
 
@@ -83,9 +83,9 @@
   - [ ] Hover effects play a small CSS animation or show metadata.
 
 ### Phase 2.2: Design System
-- [ ] **Tailwind Config:**
-  - [ ] Define semantic colors: `bg-canvas`, `text-primary`, `border-muted`.
-  - [ ] Typography: `Inter` (UI) + `JetBrains Mono` (Code).
+- [x] **Tailwind Config:**
+  - [x] Define semantic colors: `bg-canvas`, `text-primary`, `border-muted`.
+  - [x] Typography: `IBM Plex Sans` (UI) + `JetBrains Mono` (Code).
 - [ ] **Dark Mode:** Default to Dark Mode (Developer focus). Support system toggle.
 
 ---
@@ -103,11 +103,11 @@
 - [ ] **Usage:** Listing cards strictly load the SVG via `<img>`. **Zero JS overhead.**
 
 ### Phase 3.2: The Interactive Viewer (Detail Page)
-- [ ] **Library:** Install `bpmn-js` (The mature standard by Camunda).
-- [ ] **Wrapper:** Create a React component `<BPMNViewer />`.
-  - [ ] **Hydration:** Use `client:only="react"` (BPMN-js relies on `window` and cannot SSR).
-  - [ ] **Features:** Enable Zoom, Pan, Drag canvas.
-  - [ ] **Read-Only:** Use `MapsdViewer` module (lighter weight than the Modeler).
+- [x] **Library:** Install `bpmn-js` (The mature standard by Camunda).
+- [x] **Wrapper:** Create a React component `<BPMNViewer />`.
+  - [x] **Hydration:** Use `client:only="react"` (BPMN-js relies on `window` and cannot SSR).
+  - [x] **Features:** Enable Zoom, Pan, Drag canvas.
+  - [x] **Read-Only:** Use `NavigatedViewer` module (lighter weight than the Modeler).
 
 ---
 
@@ -116,7 +116,7 @@
 **Objective:** Structured data for SEO and maintainability.
 
 ### Phase 4.1: Content Collections
-- [ ] **Schema:** Define Zod schema in `src/content/config.ts`:
+- [x] **Schema:** Define Zod schema in `src/content/config.ts`:
   ```ts
   z.object({
     title: z.string(),
@@ -125,16 +125,16 @@
     complexity: z.enum(['low', 'mid', 'high']),
     author: z.string(), // GitHub Username
     discussionId: z.number().optional(), // For Comments mapping
-    published: z.date(),
+    published: z.coerce.date(),
   })
   ```
-- [ ] **Files:** Structure: `src/content/subprocesses/[locale]/[slug]/index.mdx` + `process.bpmn`.
+- [x] **Files:** Structure: `src/content/subprocesses/[locale]/[slug]/data.json` + `process.bpmn`.
 
 ### Phase 4.2: Internationalization (i18n)
-- [ ] **Config:** Update `astro.config.mjs`:
-  - [ ] `defaultLocale: "en"`, `locales: ["en", "de", "es"]`.
-  - [ ] Strategy: `routing: { prefixDefaultLocale: false }`.
-- [ ] **UI Strings:** Create `src/i18n/ui.ts` for interface translations (Search, Download, Likes).
+- [x] **Config:** Update `astro.config.mjs`:
+  - [x] `defaultLocale: "en"`, `locales: ["en", "de", "es"]`.
+  - [x] Strategy: `routing: { prefixDefaultLocale: false }`.
+- [x] **UI Strings:** Create `src/i18n/ui.ts` for interface translations (Search, Download, Likes).
 
 ---
 
@@ -174,11 +174,11 @@
 
 ## ✅ Day 1: Action Items Checklist
 
-- [ ] **Repo:** Run `pnpm init` & setup `pnpm-workspace.yaml`.
-- [ ] **Turbo:** Setup `turbo.json` pipeline with caching.
-- [ ] **Scripts:** Add `validate`, `lint`, `format` scripts to root `package.json`.
-- [ ] **App:** `npm create astro@latest apps/web`.
-- [ ] **Quality:** Setup `biome.json` (strict) & `tsconfig.json`.
-- [ ] **Content:** Add one dummy BPMN file to `src/content/`.
-- [ ] **Viewer:** Create the `<BPMNViewer />` React component.
+- [x] **Repo:** Run `pnpm init` & setup `pnpm-workspace.yaml`.
+- [x] **Turbo:** Setup `turbo.json` pipeline with caching.
+- [x] **Scripts:** Add `validate`, `lint`, `format` scripts to root `package.json`.
+- [x] **App:** Create Astro app in `apps/web`.
+- [x] **Quality:** Setup `biome.json` (strict) & `tsconfig.json`.
+- [x] **Content:** Add one dummy BPMN file to `src/content/`.
+- [x] **Viewer:** Create the `<BPMNViewer />` React component.
 - [ ] **Preview:** Write the script to convert BPMN -> SVG.

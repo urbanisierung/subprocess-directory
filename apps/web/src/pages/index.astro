@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { useTranslations } from "../i18n/ui";
+
+const t = useTranslations("en");
+---
+
+<BaseLayout title={t("home.title")}>
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-12 py-12">
+    <div class="text-center mb-12">
+      <h1 class="text-5xl font-bold mb-4">{t("home.title")}</h1>
+      <p class="text-xl text-misty-grey">{t("home.subtitle")}</p>
+      <p class="mt-2 text-misty-grey">
+        Browse like Netflix. Drop it in. Done.
+      </p>
+    </div>
+
+    <div class="mt-16">
+      <h2 class="text-2xl font-semibold mb-6">Coming Soon</h2>
+      <div class="bg-white p-8 rounded-lg border border-concrete-grey">
+        <p class="text-lg text-misty-grey mb-4">
+          We're building a catalog of reusable BPMN subprocesses.
+        </p>
+        <ul class="space-y-2 text-misty-grey">
+          <li>✅ Monorepo setup with pnpm + Turborepo</li>
+          <li>✅ Astro 5 + React + Tailwind CSS</li>
+          <li>✅ BPMN.js integration for interactive diagrams</li>
+          <li>✅ i18n support (en, de, es)</li>
+          <li>🔨 Content collections for subprocess metadata</li>
+          <li>🔨 Static SVG previews for listing pages</li>
+          <li>🔨 Search with Pagefind</li>
+          <li>🔨 GitHub Discussions integration</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12">
+      <h3 class="text-xl font-semibold mb-4">Technical Stack</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white p-6 rounded-lg border border-concrete-grey">
+          <h4 class="font-semibold mb-2">Framework</h4>
+          <p class="text-sm text-misty-grey">Astro 5 + React 19</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg border border-concrete-grey">
+          <h4 class="font-semibold mb-2">Styling</h4>
+          <p class="text-sm text-misty-grey">Tailwind CSS 3.4</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg border border-concrete-grey">
+          <h4 class="font-semibold mb-2">BPMN Engine</h4>
+          <p class="text-sm text-misty-grey">bpmn-js 18</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

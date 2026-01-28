@@ -1,0 +1,72 @@
+---
+import "@fontsource/ibm-plex-sans/400.css";
+import "@fontsource/ibm-plex-sans/500.css";
+import "@fontsource/ibm-plex-sans/600.css";
+import "@fontsource/ibm-plex-sans/700.css";
+import "@fontsource/jetbrains-mono/400.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "A catalog of reusable BPMN subprocesses" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="bg-spacecraft text-gray-900 font-sans">
+    <nav class="sticky top-0 bg-white border-b border-concrete-grey h-16 z-50">
+      <div class="max-w-screen-xl mx-auto px-6 lg:px-12 h-full flex items-center justify-between">
+        <div class="flex items-center gap-8">
+          <a href="/" class="font-bold text-xl">🎯 Subprocess Hub</a>
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            class="px-4 py-2 bg-orangemunda text-white rounded hover:opacity-90 transition-opacity"
+          >
+            Submit Process
+          </button>
+        </div>
+      </div>
+    </nav>
+    
+    <main class="min-h-screen">
+      <slot />
+    </main>
+
+    <footer class="bg-look-up text-white py-8 mt-16">
+      <div class="max-w-screen-xl mx-auto px-6 lg:px-12 text-center">
+        <p class="text-sm text-misty-grey">
+          Subprocess Hub - Browse like Netflix. Drop it in. Done.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .bpmn-container {
+    width: 100%;
+  }
+</style>
