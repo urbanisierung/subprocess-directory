@@ -47,7 +47,7 @@ try {
 // Get process ID (just the name without locale)
 const processNameParts = pathWithoutData.split("/").slice(1); // Remove locale
 const processId = processNameParts.join("-");
-const githubUrl = `https://github.com/urbanisierung/subprocess-directory/blob/main/apps/web/src/content/subprocesses/${pathWithoutData}/process.bpmn`;
+const githubUrl = `https://github.com/camunda-directory/subprocesses/blob/main/apps/web/src/content/subprocesses/${pathWithoutData}/process.bpmn`;
 
 // Format date
 const publishedDate = new Date(data.published).toLocaleDateString("en-US", {
