@@ -1,0 +1,178 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProcessCard from "../components/ProcessCard.tsx";
+import FacetedSidebar from "../components/FacetedSidebar.tsx";
+import CommandPalette from "../components/CommandPalette.tsx";
+import { getCollection } from "astro:content";
+
+// Get all subprocesses
+const allSubprocesses = await getCollection("subprocesses");
+
+// Mock data for demonstration (in real app, this would come from content collections)
+const processes = [
+  {
+    id: "invoice-approval",
+    title: "Invoice Approval Process",
+    description: "A simple subprocess for reviewing and approving invoices with automatic payment processing",
+    tags: ["finance", "approval", "automation"],
+    complexity: "low" as const,
+    author: "subprocess-hub",
+  },
+  {
+    id: "employee-onboarding",
+    title: "Employee Onboarding",
+    description: "Complete onboarding workflow for new employees including documentation and system access",
+    tags: ["hr", "onboarding", "workflow"],
+    complexity: "mid" as const,
+    author: "hr-team",
+  },
+  {
+    id: "purchase-order",
+    title: "Purchase Order Approval",
+    description: "Multi-level approval process for purchase orders with budget validation",
+    tags: ["finance", "procurement", "approval"],
+    complexity: "mid" as const,
+    author: "finance-team",
+  },
+  {
+    id: "incident-management",
+    title: "Incident Management",
+    description: "IT incident tracking and resolution workflow with SLA monitoring",
+    tags: ["tech", "support", "monitoring"],
+    complexity: "high" as const,
+    author: "it-team",
+  },
+  {
+    id: "leave-request",
+    title: "Leave Request",
+    description: "Employee leave request and approval workflow with calendar integration",
+    tags: ["hr", "approval", "calendar"],
+    complexity: "low" as const,
+    author: "hr-team",
+  },
+  {
+    id: "customer-refund",
+    title: "Customer Refund Process",
+    description: "Streamlined refund processing with fraud detection and payment reversal",
+    tags: ["finance", "customer-service", "payment"],
+    complexity: "mid" as const,
+    author: "cs-team",
+  },
+];
+
+const commandPaletteData = processes.map((p) => ({
+  id: p.id,
+  title: p.title,
+  tags: p.tags,
+  complexity: p.complexity,
+}));
+---
+
+<BaseLayout title="Browse Processes - Subprocess Hub">
+  <div class="flex">
+    <FacetedSidebar
+      client:load
+      isOpen={false}
+      onToggle={() => {}}
+      onFilterChange={(filters) => console.log(filters)}
+    />
+
+    <div class="flex-1">
+      <!-- Mobile Filter Toggle -->
+      <div class="lg:hidden p-4 border-b border-concrete-grey dark:border-gray-800">
+        <button
+          id="mobile-filter-toggle"
+          class="flex items-center gap-2 px-4 py-2 border border-concrete-grey dark:border-gray-700 rounded-lg hover:bg-spacecraft dark:hover:bg-gray-800 transition-colors"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
+            />
+          </svg>
+          Filters
+        </button>
+      </div>
+
+      <!-- Content Area -->
+      <div class="p-6 lg:p-12">
+        <!-- Header -->
+        <div class="mb-8">
+          <h1 class="text-4xl font-bold mb-4 dark:text-white">Browse Processes</h1>
+          <p class="text-lg text-misty-grey dark:text-gray-400">
+            Discover and integrate reusable BPMN subprocesses. Press{" "}
+            <kbd class="px-2 py-1 bg-spacecraft dark:bg-gray-800 border border-concrete-grey dark:border-gray-700 rounded text-sm font-mono">
+              ⌘K
+            </kbd>{" "}
+            to search.
+          </p>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-concrete-grey dark:border-gray-800">
+            <div class="text-2xl font-bold text-orangemunda">{processes.length}</div>
+            <div class="text-sm text-misty-grey dark:text-gray-400">Total Processes</div>
+          </div>
+          <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-concrete-grey dark:border-gray-800">
+            <div class="text-2xl font-bold text-greenmunda">
+              {processes.filter((p) => p.complexity === "low").length}
+            </div>
+            <div class="text-sm text-misty-grey dark:text-gray-400">Simple</div>
+          </div>
+          <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-concrete-grey dark:border-gray-800">
+            <div class="text-2xl font-bold text-orangemunda">
+              {processes.filter((p) => p.complexity === "mid").length}
+            </div>
+            <div class="text-sm text-misty-grey dark:text-gray-400">Moderate</div>
+          </div>
+          <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-concrete-grey dark:border-gray-800">
+            <div class="text-2xl font-bold text-red-600">
+              {processes.filter((p) => p.complexity === "high").length}
+            </div>
+            <div class="text-sm text-misty-grey dark:text-gray-400">Complex</div>
+          </div>
+        </div>
+
+        <!-- Process Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {
+            processes.map((process) => (
+              <ProcessCard
+                id={process.id}
+                title={process.title}
+                description={process.description}
+                tags={process.tags}
+                complexity={process.complexity}
+                author={process.author}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <CommandPalette client:only="react" processes={commandPaletteData} />
+</BaseLayout>
+
+<script>
+  // Mobile filter toggle functionality
+  const filterToggle = document.getElementById("mobile-filter-toggle");
+  let sidebarOpen = false;
+
+  filterToggle?.addEventListener("click", () => {
+    sidebarOpen = !sidebarOpen;
+    // This would trigger the sidebar component
+    // For now, it's just a placeholder
+    console.log("Toggle sidebar:", sidebarOpen);
+  });
+</script>
+
+<style>
+  kbd {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+</style>

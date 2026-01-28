@@ -69,24 +69,24 @@
 **Objective:** "Find the right recipe in seconds."
 
 ### Phase 2.1: Navigation Architecture
-- [ ] **Command Palette (Cmd+K):**
-  - [ ] Implement a global search modal (e.g., using `kbar` or custom dialog).
-  - [ ] Index: Process Titles, Tags, IDs.
-- [ ] **Faceted Sidebar:**
-  - [ ] Permanent left sidebar on desktop (collapsible on mobile).
-  - [ ] **Facets:**
+- [x] **Command Palette (Cmd+K):**
+  - [x] Implement a global search modal (e.g., using `kbar` or custom dialog).
+  - [x] Index: Process Titles, Tags, IDs.
+- [x] **Faceted Sidebar:**
+  - [x] Permanent left sidebar on desktop (collapsible on mobile).
+  - [x] **Facets:**
     - *Category:* Finance, HR, Tech.
     - *Complexity:* Green (Simple), Yellow (Moderate), Red (Complex).
     - *Elements:* "Contains User Task", "Contains Service Task".
-- [ ] **The "Netflix" Grid:**
-  - [ ] Main view displays cards with **Static SVG Previews** (not loaded JS engines).
-  - [ ] Hover effects play a small CSS animation or show metadata.
+- [x] **The "Netflix" Grid:**
+  - [x] Main view displays cards with **Static SVG Previews** (not loaded JS engines).
+  - [x] Hover effects play a small CSS animation or show metadata.
 
 ### Phase 2.2: Design System
 - [x] **Tailwind Config:**
   - [x] Define semantic colors: `bg-canvas`, `text-primary`, `border-muted`.
   - [x] Typography: `IBM Plex Sans` (UI) + `JetBrains Mono` (Code).
-- [ ] **Dark Mode:** Default to Dark Mode (Developer focus). Support system toggle.
+- [x] **Dark Mode:** Default to Dark Mode (Developer focus). Support system toggle.
 
 ---
 
