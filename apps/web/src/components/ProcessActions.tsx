@@ -44,7 +44,7 @@ export default function ProcessActions({
     <div className="flex flex-wrap gap-3">
       <button
         onClick={handleDownload}
-        className="flex-1 min-w-[200px] px-4 py-2 border border-gray-900 dark:border-gray-700 rounded hover:bg-spacecraft dark:hover:bg-gray-800 transition-colors dark:text-white flex items-center justify-center gap-2"
+        className="flex-1 min-w-[200px] px-4 py-2 border border-gray-300 dark:border-gray-700 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-900 dark:text-white flex items-center justify-center gap-2"
       >
         <svg
           className="w-5 h-5"
@@ -64,12 +64,12 @@ export default function ProcessActions({
       </button>
       <button
         onClick={handleCopy}
-        className="flex-1 min-w-[200px] px-4 py-2 border border-gray-900 dark:border-gray-700 rounded hover:bg-spacecraft dark:hover:bg-gray-800 transition-colors dark:text-white flex items-center justify-center gap-2"
+        className="flex-1 min-w-[200px] px-4 py-2 border border-gray-300 dark:border-gray-700 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-900 dark:text-white flex items-center justify-center gap-2"
       >
         {copied ? (
           <>
             <svg
-              className="w-5 h-5 text-greenmunda"
+              className="w-5 h-5 text-green-600 dark:text-green-400"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -82,7 +82,7 @@ export default function ProcessActions({
                 d="M5 13l4 4L19 7"
               />
             </svg>
-            <span className="text-greenmunda">Copied!</span>
+            <span className="text-green-600 dark:text-green-400">Copied!</span>
           </>
         ) : (
           <>
@@ -108,7 +108,7 @@ export default function ProcessActions({
         href={githubUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex-1 min-w-[200px] px-4 py-2 text-center border border-gray-900 dark:border-gray-700 rounded hover:bg-spacecraft dark:hover:bg-gray-800 transition-colors dark:text-white flex items-center justify-center gap-2"
+        className="flex-1 min-w-[200px] px-4 py-2 text-center border border-gray-300 dark:border-gray-700 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-900 dark:text-white flex items-center justify-center gap-2"
       >
         <svg
           className="w-5 h-5"

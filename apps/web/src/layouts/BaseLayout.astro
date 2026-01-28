@@ -28,16 +28,16 @@ const { title, description = "A catalog of reusable BPMN subprocesses" } = Astro
       document.documentElement.classList.toggle('dark', theme === 'dark');
     </script>
   </head>
-  <body class="bg-spacecraft dark:bg-look-up text-gray-900 dark:text-gray-100 font-sans transition-colors">
-    <nav class="sticky top-0 bg-white dark:bg-gray-900 border-b border-concrete-grey dark:border-gray-800 h-16 z-50">
+  <body class="bg-spacecraft text-gray-900 dark:bg-black dark:text-white font-sans transition-colors">
+    <nav class="sticky top-0 bg-black border-b border-gray-800 h-16 z-50">
       <div class="max-w-screen-xl mx-auto px-6 lg:px-12 h-full flex items-center justify-between">
         <div class="flex items-center gap-8">
-          <a href="/" class="font-bold text-xl dark:text-white">🎯 Subprocess Hub</a>
+          <a href="/" class="font-bold text-xl text-white">🎯 Subprocess Hub</a>
         </div>
         <div class="flex items-center gap-4">
           <button
             id="theme-toggle"
-            class="p-2 rounded-lg hover:bg-spacecraft dark:hover:bg-gray-800 transition-colors"
+            class="p-2 rounded-lg hover:bg-gray-800 transition-colors text-white"
             aria-label="Toggle dark mode"
           >
             <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20">
@@ -60,9 +60,9 @@ const { title, description = "A catalog of reusable BPMN subprocesses" } = Astro
       <slot />
     </main>
 
-    <footer class="bg-look-up text-white py-8 mt-16">
+    <footer class="bg-black text-white py-8 mt-16">
       <div class="max-w-screen-xl mx-auto px-6 lg:px-12 text-center">
-        <p class="text-sm text-misty-grey">
+        <p class="text-sm text-gray-400">
           Subprocess Hub - Browse like Netflix. Drop it in. Done.
         </p>
       </div>

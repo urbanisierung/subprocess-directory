@@ -68,7 +68,7 @@ const complexityColors = {
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Breadcrumb -->
     <nav class="mb-6 text-sm">
-      <ol class="flex items-center gap-2 text-misty-grey dark:text-gray-400">
+      <ol class="flex items-center gap-2 text-gray-600 dark:text-gray-400">
         <li><a href="/" class="hover:text-orangemunda transition-colors">Home</a></li>
         <li>/</li>
         <li><a href="/browse" class="hover:text-orangemunda transition-colors">Browse</a></li>
@@ -82,7 +82,7 @@ const complexityColors = {
       <h1 class="text-4xl lg:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
         {data.title}
       </h1>
-      <p class="text-xl text-misty-grey dark:text-gray-400 mb-6">
+      <p class="text-xl text-gray-600 dark:text-gray-400 mb-6">
         {data.description}
       </p>
 
@@ -92,7 +92,7 @@ const complexityColors = {
         <div class="flex flex-wrap gap-2">
           {
             data.tags.map((tag) => (
-              <span class="px-3 py-1 bg-spacecraft dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm rounded-full border border-concrete-grey dark:border-gray-700">
+              <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm rounded-full border border-gray-200 dark:border-gray-700">
                 {tag}
               </span>
             ))
@@ -108,7 +108,7 @@ const complexityColors = {
       </div>
 
       <!-- Metadata -->
-      <div class="mt-4 flex flex-wrap items-center gap-6 text-sm text-misty-grey dark:text-gray-400">
+      <div class="mt-4 flex flex-wrap items-center gap-6 text-sm text-gray-600 dark:text-gray-400">
         <div class="flex items-center gap-2">
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
             <path
@@ -135,11 +135,11 @@ const complexityColors = {
     <!-- BPMN Viewer -->
     <div class="mb-8">
       <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Process Diagram</h2>
-      <div class="bg-white dark:bg-gray-900 rounded-lg border border-concrete-grey dark:border-gray-800 overflow-hidden">
+      <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden">
         {bpmnXml ? (
           <BPMNViewer client:only="react" xml={bpmnXml} />
         ) : (
-          <div class="p-8 text-center text-misty-grey dark:text-gray-400">
+          <div class="p-8 text-center text-gray-600 dark:text-gray-400">
             No BPMN diagram available
           </div>
         )}
@@ -160,7 +160,7 @@ const complexityColors = {
     <!-- Description Section -->
     <div class="mb-12 prose dark:prose-invert max-w-none">
       <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">About This Process</h2>
-      <div class="bg-white dark:bg-gray-900 rounded-lg border border-concrete-grey dark:border-gray-800 p-6">
+      <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-6">
         <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
           {data.description}
         </p>

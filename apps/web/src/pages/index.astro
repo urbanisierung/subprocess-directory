@@ -8,9 +8,9 @@ const t = useTranslations("en");
 <BaseLayout title={t("home.title")}>
   <div class="max-w-screen-xl mx-auto px-6 lg:px-12 py-12">
     <div class="text-center mb-12">
-      <h1 class="text-5xl font-bold mb-4 dark:text-white">{t("home.title")}</h1>
-      <p class="text-xl text-misty-grey dark:text-gray-400">{t("home.subtitle")}</p>
-      <p class="mt-2 text-misty-grey dark:text-gray-400">
+      <h1 class="text-5xl font-bold mb-4 text-gray-900 dark:text-white">{t("home.title")}</h1>
+      <p class="text-xl text-gray-600 dark:text-gray-400">{t("home.subtitle")}</p>
+      <p class="mt-2 text-gray-600 dark:text-gray-400">
         Browse like Netflix. Drop it in. Done.
       </p>
       <div class="mt-8 flex justify-center gap-4">
@@ -22,7 +22,7 @@ const t = useTranslations("en");
         </a>
         <a
           href="/demo"
-          class="px-6 py-3 border border-gray-900 dark:border-gray-700 rounded-lg hover:bg-spacecraft dark:hover:bg-gray-800 transition-colors font-medium dark:text-white"
+          class="px-6 py-3 border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium text-gray-900 dark:text-white"
         >
           View Demo
         </a>
@@ -30,12 +30,12 @@ const t = useTranslations("en");
     </div>
 
     <div class="mt-16">
-      <h2 class="text-2xl font-semibold mb-6 dark:text-white">Feature Status</h2>
-      <div class="bg-white dark:bg-gray-900 p-8 rounded-lg border border-concrete-grey dark:border-gray-800">
-        <p class="text-lg text-misty-grey dark:text-gray-400 mb-4">
+      <h2 class="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">Feature Status</h2>
+      <div class="bg-white dark:bg-gray-900 p-8 rounded-lg border border-gray-200 dark:border-gray-800">
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">
           We're building a catalog of reusable BPMN subprocesses.
         </p>
-        <ul class="space-y-2 text-misty-grey dark:text-gray-400">
+        <ul class="space-y-2 text-gray-600 dark:text-gray-400">
           <li>✅ Monorepo setup with pnpm + Turborepo</li>
           <li>✅ Astro 5 + React + Tailwind CSS</li>
           <li>✅ BPMN.js integration for interactive diagrams</li>
@@ -53,19 +53,19 @@ const t = useTranslations("en");
     </div>
 
     <div class="mt-12">
-      <h3 class="text-xl font-semibold mb-4 dark:text-white">Technical Stack</h3>
+      <h3 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Technical Stack</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="bg-white dark:bg-gray-900 p-6 rounded-lg border border-concrete-grey dark:border-gray-800">
-          <h4 class="font-semibold mb-2 dark:text-white">Framework</h4>
-          <p class="text-sm text-misty-grey dark:text-gray-400">Astro 5 + React 19</p>
+        <div class="bg-white dark:bg-gray-900 p-6 rounded-lg border border-gray-200 dark:border-gray-800">
+          <h4 class="font-semibold mb-2 text-gray-900 dark:text-white">Framework</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Astro 5 + React 19</p>
         </div>
-        <div class="bg-white dark:bg-gray-900 p-6 rounded-lg border border-concrete-grey dark:border-gray-800">
-          <h4 class="font-semibold mb-2 dark:text-white">Styling</h4>
-          <p class="text-sm text-misty-grey dark:text-gray-400">Tailwind CSS 3.4</p>
+        <div class="bg-white dark:bg-gray-900 p-6 rounded-lg border border-gray-200 dark:border-gray-800">
+          <h4 class="font-semibold mb-2 text-gray-900 dark:text-white">Styling</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Tailwind CSS 3.4</p>
         </div>
-        <div class="bg-white dark:bg-gray-900 p-6 rounded-lg border border-concrete-grey dark:border-gray-800">
-          <h4 class="font-semibold mb-2 dark:text-white">BPMN Engine</h4>
-          <p class="text-sm text-misty-grey dark:text-gray-400">bpmn-js 18</p>
+        <div class="bg-white dark:bg-gray-900 p-6 rounded-lg border border-gray-200 dark:border-gray-800">
+          <h4 class="font-semibold mb-2 text-gray-900 dark:text-white">BPMN Engine</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-400">bpmn-js 18</p>
         </div>
       </div>
     </div>

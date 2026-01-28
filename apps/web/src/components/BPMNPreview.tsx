@@ -48,7 +48,7 @@ export default function BPMNPreview({ xml, className = "" }: BPMNPreviewProps) {
 
   if (error) {
     return (
-      <div className={`flex items-center justify-center bg-spacecraft dark:bg-gray-800 ${className}`}>
+      <div className={`flex items-center justify-center bg-gray-100 dark:bg-gray-800 ${className}`}>
         <p className="text-sm text-gray-500">Preview unavailable</p>
       </div>
     );
