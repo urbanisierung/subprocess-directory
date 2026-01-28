@@ -31,6 +31,7 @@
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.3",
     "bpmn-js": "^18.10.1",
+    "bpmn-to-svg": "^0.5.1",
     "canvas": "^3.2.1",
     "typescript": "^5.9.3"
   }

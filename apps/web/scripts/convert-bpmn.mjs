@@ -3,6 +3,7 @@ import { readdir, mkdir, readFile, writeFile } from "node:fs/promises";
 import { join, dirname, basename } from "node:path";
 import { fileURLToPath } from "node:url";
 import { existsSync } from "node:fs";
+import bpmnToSvg from "bpmn-to-svg";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -36,8 +37,23 @@ async function findBpmnFiles(dir) {
 }
 
 /**
- * Generate a simple SVG representation from BPMN XML
- * This creates a placeholder SVG since we can't use browser-dependent tools in CI
+ * Generate real BPMN diagram SVG using bpmn-to-svg
+ * This renders actual process shapes and flows
+ */
+async function generateBpmnSvg(bpmnXml) {
+  try {
+    const result = await bpmnToSvg(bpmnXml);
+    return result.svg;
+  } catch (error) {
+    console.error("Error generating BPMN SVG:", error.message);
+    // Fallback to placeholder if conversion fails
+    return generatePlaceholderSvg(bpmnXml, "Process");
+  }
+}
+
+/**
+ * Fallback: Generate a simple SVG representation from BPMN XML
+ * Used only if bpmn-to-svg fails
  */
 function generatePlaceholderSvg(bpmnXml, processName) {
   // Extract process name from XML if available
@@ -123,8 +139,9 @@ async function convertBpmnToSvg() {
       const outputFileName = `${subprocessName}.svg`;
       const outputPath = join(OUTPUT_DIR, outputFileName);
 
-      // Generate placeholder SVG
-      const svg = generatePlaceholderSvg(xml, subprocessName);
+      // Generate real BPMN diagram SVG
+      console.log(`  🎨 Rendering BPMN diagram...`);
+      const svg = await generateBpmnSvg(xml);
 
       // Write SVG to file
       await writeFile(outputPath, svg, "utf-8");
@@ -139,6 +156,7 @@ async function convertBpmnToSvg() {
   }
 
   console.log("\n✨ BPMN to SVG conversion complete!");
+  console.log("   Preview cards will now show actual process diagrams!");
 }
 
 // Run the conversion
