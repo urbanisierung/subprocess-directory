@@ -57,7 +57,7 @@ export default function BPMNPreview({ xml, className = "" }: BPMNPreviewProps) {
   return (
     <div
       ref={containerRef}
-      className={`bpmn-preview ${className}`}
+      className={`bpmn-preview bg-white ${className}`}
       style={{
         width: "100%",
         height: "100%",

@@ -21,27 +21,20 @@ const filterGroups: FilterGroup[] = [
   {
     title: "Category",
     options: [
-      { label: "Finance", value: "finance", count: 12 },
-      { label: "HR", value: "hr", count: 8 },
-      { label: "Tech", value: "tech", count: 15 },
-      { label: "Operations", value: "operations", count: 10 },
+      { label: "Finance", value: "finance" },
+      { label: "HR", value: "hr" },
+      { label: "Onboarding", value: "onboarding" },
+      { label: "Procurement", value: "procurement" },
+      { label: "Approval", value: "approval" },
+      { label: "Automation", value: "automation" },
     ],
   },
   {
     title: "Complexity",
     options: [
-      { label: "Simple", value: "low", count: 20 },
-      { label: "Moderate", value: "mid", count: 15 },
-      { label: "Complex", value: "high", count: 10 },
-    ],
-  },
-  {
-    title: "Elements",
-    options: [
-      { label: "User Task", value: "user-task", count: 25 },
-      { label: "Service Task", value: "service-task", count: 30 },
-      { label: "Gateway", value: "gateway", count: 18 },
-      { label: "Subprocess", value: "subprocess", count: 12 },
+      { label: "Simple", value: "low" },
+      { label: "Moderate", value: "mid" },
+      { label: "Complex", value: "high" },
     ],
   },
 ];
@@ -141,11 +134,6 @@ export default function FacetedSidebar({
                         <span className="text-sm text-gray-300 group-hover:text-white flex-1 transition-colors">
                           {option.label}
                         </span>
-                        {option.count !== undefined && (
-                          <span className="text-xs text-gray-500">
-                            {option.count}
-                          </span>
-                        )}
                       </label>
                     );
                   })}
