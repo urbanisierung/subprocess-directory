@@ -8,9 +8,7 @@ export default defineConfig({
   output: "static",
   integrations: [
     react(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
+    tailwind(),
   ],
   i18n: {
     defaultLocale: "en",
