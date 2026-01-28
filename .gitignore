@@ -9,7 +9,9 @@ node_modules/
 # Production
 /build
 /dist
+/apps/web/dist
 /.astro
+dist
 
 # Misc
 .DS_Store
