@@ -9,7 +9,7 @@ interface Process {
   tags: string[];
   complexity: "low" | "mid" | "high";
   author: string;
-  imageUrl?: string;
+  bpmnXml?: string;
 }
 
 interface BrowseContentProps {

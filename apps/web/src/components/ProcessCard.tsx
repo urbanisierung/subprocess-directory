@@ -5,7 +5,7 @@ interface ProcessCardProps {
   tags: string[];
   complexity: "low" | "mid" | "high";
   author: string;
-  imageUrl?: string;
+  bpmnXml?: string;
 }
 
 const complexityLabels = {
@@ -20,6 +20,8 @@ const complexityColors = {
   high: "bg-red-600/20 text-red-600",
 };
 
+import BPMNPreview from "./BPMNPreview";
+
 export default function ProcessCard({
   id,
   title,
@@ -27,23 +29,21 @@ export default function ProcessCard({
   tags,
   complexity,
   author,
-  imageUrl,
+  bpmnXml,
 }: ProcessCardProps) {
   return (
     <a
       href={`/process/${id}`}
       className="block bg-white dark:bg-gray-900 border border-concrete-grey dark:border-gray-800 rounded-lg overflow-hidden transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group"
     >
-      {/* Preview Image */}
-      <div className="h-40 bg-spacecraft dark:bg-gray-800 border-b border-concrete-grey dark:border-gray-700 relative overflow-hidden">
-        {imageUrl ? (
-          <img
-            src={imageUrl}
-            alt={`Preview of ${title}`}
-            className="w-full h-full object-contain p-4"
-          />
+      {/* BPMN Preview - Client-side only */}
+      <div className="h-40 bg-white dark:bg-gray-900 border-b border-concrete-grey dark:border-gray-700 relative overflow-hidden">
+        {bpmnXml ? (
+          <div className="w-full h-full" data-bpmn-preview={id}>
+            <BPMNPreview xml={bpmnXml} className="pointer-events-none" />
+          </div>
         ) : (
-          <div className="w-full h-full flex items-center justify-center">
+          <div className="w-full h-full flex items-center justify-center bg-spacecraft dark:bg-gray-800">
             <svg
               className="w-16 h-16 text-gray-300 dark:text-gray-600"
               fill="none"
@@ -59,15 +59,6 @@ export default function ProcessCard({
             </svg>
           </div>
         )}
-        {/* Dot pattern overlay */}
-        <div
-          className="absolute inset-0 opacity-10 dark:opacity-5"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, #000 1px, transparent 1px)",
-            backgroundSize: "20px 20px",
-          }}
-        />
       </div>
 
       {/* Content */}
