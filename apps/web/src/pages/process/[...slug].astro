@@ -147,7 +147,7 @@ const complexityColors = {
       <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Process Diagram</h2>
       <div class="bg-white dark:bg-gray-900 rounded-lg border border-concrete-grey dark:border-gray-800 overflow-hidden">
         {bpmnXml ? (
-          <BPMNViewer client:only="react" bpmnXml={bpmnXml} />
+          <BPMNViewer client:only="react" xml={bpmnXml} />
         ) : (
           <div class="p-8 text-center text-misty-grey dark:text-gray-400">
             No BPMN diagram available
