@@ -32,7 +32,10 @@ const { title, description = "A catalog of reusable BPMN subprocesses" } = Astro
     <nav class="sticky top-0 bg-black border-b border-gray-800 h-16 z-50">
       <div class="max-w-screen-xl mx-auto px-6 lg:px-12 h-full flex items-center justify-between">
         <div class="flex items-center gap-8">
-          <a href="/" class="font-bold text-xl text-white">🎯 Subprocess Hub</a>
+          <a href="/" class="font-bold text-xl text-white flex items-center gap-2">
+            <img src="/logo.svg" alt="Subprocess Hub Logo" class="w-8 h-8" />
+            <span>Subprocess Hub</span>
+          </a>
         </div>
         <div class="flex items-center gap-4">
           <button
@@ -47,11 +50,14 @@ const { title, description = "A catalog of reusable BPMN subprocesses" } = Astro
               <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
             </svg>
           </button>
-          <button
+          <a
+            href="https://github.com/camunda-directory/subprocesses"
+            target="_blank"
+            rel="noopener noreferrer"
             class="px-4 py-2 bg-orangemunda text-white rounded hover:opacity-90 transition-opacity"
           >
             Submit Process
-          </button>
+          </a>
         </div>
       </div>
     </nav>
